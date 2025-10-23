@@ -20,10 +20,10 @@ echo "Starting MySQL container..."
 sudo docker run -d \
   --name wp-mysql \
   --network wp-network \
-  -e MYSQL_ROOT_PASSWORD=misiani \
+  -e MYSQL_ROOT_PASSWORD=password \
   -e MYSQL_DATABASE=wordpress \
   -e MYSQL_USER=wpuser \
-  -e MYSQL_PASSWORD=misiani \
+  -e MYSQL_PASSWORD=password \
   mysql:5.7
 
 # Run WordPress container
@@ -34,7 +34,7 @@ sudo docker run -d \
   -p 80:80 \
   -e WORDPRESS_DB_HOST=wp-mysql:3306 \
   -e WORDPRESS_DB_USER=wpuser \
-  -e WORDPRESS_DB_PASSWORD=misiani \
+  -e WORDPRESS_DB_PASSWORD=password \
   -e WORDPRESS_DB_NAME=wordpress \
   wordpress:latest
 
